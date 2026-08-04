@@ -1,23 +1,23 @@
-# Loja IA — backend Railway
-
-Servidor FastAPI para receber mensagens do WhatsApp Cloud API, consultar produtos e responder usando a OpenAI.
+# Loja IA — Backend
 
 ## Railway
+Envie todos os arquivos desta pasta para a raiz do repositório GitHub.
 
-1. Coloque esta pasta em um repositório GitHub.
-2. No Railway: New Project > Deploy from GitHub repo.
-3. Adicione as variáveis do `.env.example` na aba Variables.
-4. Em Settings > Networking, clique em Generate Domain.
-5. O webhook será `https://SEU-DOMINIO.up.railway.app/webhook`.
-6. Na Meta, use essa URL e o mesmo valor de `VERIFY_TOKEN`.
-7. Assine o campo `messages`.
+Cadastre no Railway:
+- OPENAI_API_KEY
+- OPENAI_MODEL
+- META_ACCESS_TOKEN
+- PHONE_NUMBER_ID
+- VERIFY_TOKEN
+- ADMIN_SECRET
+- STORE_NAME
+- GRAPH_API_VERSION
 
-## Volume recomendado
+Gere um domínio e teste:
+`https://SEU-DOMINIO/health`
 
-No Railway, crie um Volume montado em `/data`. Assim o catálogo de produtos não desaparece em novos deploys.
+Webhook Meta:
+- URL: `https://SEU-DOMINIO/webhook`
+- Token: o mesmo valor de `VERIFY_TOKEN`
 
-## Testes
-
-- `GET /health`
-- `GET /` mostra apenas se as integrações estão preenchidas, sem exibir segredos.
-- `POST /admin/test-message` exige o header `X-Admin-Secret`.
+Depois assine o campo `messages`.
